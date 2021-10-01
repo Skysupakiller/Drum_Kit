@@ -7,11 +7,13 @@ document.querySelectorAll(".drum")[i].addEventListener("click",function () {
 
 var letterImage = this.innerHTML;
 letterCheck(letterImage);
+animation(letterImage);
 });
 }
 
 document.addEventListener("keydown", function(event){
     letterCheck(event.key);
+    animation(event.key);
 })
 
 function letterCheck (letter){
@@ -46,4 +48,13 @@ function letterCheck (letter){
     break;
     default:
 }
+}
+
+
+function animation (Anim) {
+  var activeButton = document.querySelector("."+ Anim);
+  activeButton.classList.add("pressed");
+  setTimeout (function(){
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
